@@ -44,8 +44,11 @@ public class NetMan : NetworkManager {
         playerConnected = true;
     }
 
-    private void Update()
+    
+    public override void Update()
     {
+        base.Update();
+        
         if (Input.GetKeyDown(KeyCode.Mouse0) && !playerSpawned && playerConnected)
         {
             ActivatePlayerSpawn();
