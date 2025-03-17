@@ -192,7 +192,7 @@ MonoBehaviour:
   autoConnectClientBuild: 0
   offlineScene: Assets/AppShooter/Scenes/SceneBoot.unity
   onlineScene: Assets/AppShooter/Scenes/Develop.unity
-  transport: {fileID: 0}
+  transport: {fileID: 1153443734}
   networkAddress: localhost
   maxConnections: 100
   disconnectInactiveConnections: 0
@@ -230,7 +230,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6b0fecffa3f624585964b0d0eb21b18e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  port: 7777
+  port: 69
   DualMode: 1
   NoDelay: 1
   Interval: 10

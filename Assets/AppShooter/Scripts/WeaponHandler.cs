@@ -2,7 +2,7 @@ using System;
 using System.Collections;
 using UnityEngine;
 
-[System.Serializable]
+[Serializable]
 public class WeaponHandler {
     [SerializeField] private string drawAnim = "draw";
     [SerializeField] private string fireLeftAnim = "fire";
@@ -27,17 +27,20 @@ public class WeaponHandler {
     }
  
     public void OnUpdate () {
-        if (Input.GetButton (fireKey) && _reloading == false && _drawWeapon == false){  Fire(); }
+        if (Input.GetButton (fireKey) && _reloading == false && _drawWeapon == false){ CmdFire(); }
         if (Input.GetKeyDown (reloadKey) && _reloading == false && _drawWeapon == false){ _mono.StartCoroutine(Reloading()); }
         if (Input.GetKeyDown (changeKey) && _reloading == false){ _mono.StartCoroutine(DrawWeapon()); }      
     }
-
-    private void Fire() {
+    
+    private void CmdFire() {
         if (_shooting) return;
-        anim.CrossFadeQueued(fireLeftAnim, 0.08f, QueueMode.PlayNow);
-        muzzleFlash.Play();
         _mono.StartCoroutine(TimerShoot());
         ShootEvent?.Invoke();
+    }
+
+    public void RpcOnFire() {
+        anim.CrossFadeQueued(fireLeftAnim, 0.08f, QueueMode.PlayNow);
+        muzzleFlash.Play();
     }
 
     private IEnumerator TimerShoot() {
