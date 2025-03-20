@@ -174,6 +174,12 @@ namespace Mirror
         //    in other words, we need this to know which mode we are running in
         //    during FinishLoadScene.
         public NetworkManagerMode mode { get; private set; }
+        
+        
+        protected GameObject _player;
+        public GameObject GetPlayer() => _player;
+        public void SetPlayer(GameObject player) => _player = player; 
+        
 
         // virtual so that inheriting classes' OnValidate() can call base.OnValidate() too
         public virtual void OnValidate()
