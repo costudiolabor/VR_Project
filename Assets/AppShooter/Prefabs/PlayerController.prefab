@@ -244,9 +244,9 @@ GameObject:
   - component: {fileID: 3755429126666640692}
   - component: {fileID: 33968888993482985}
   - component: {fileID: 8321054633001100277}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Head
-  m_TagString: Untagged
+  m_TagString: Head
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -341,7 +341,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a281b420e2fd83346aeb9a2549ec88d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  networkIdentity: {fileID: 322185213641378809}
 --- !u!1 &7129124729992620087
 GameObject:
   m_ObjectHideFlags: 0
@@ -800,7 +799,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8225628602776891487}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.32492846, y: -0.588, z: -2.0637336}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1152,16 +1151,20 @@ MonoBehaviour:
     anim: {fileID: 8225628604454945776}
     muzzleFlash: {fileID: 9050299865601599338}
   hitHandler:
-    bulletPrefab: {fileID: -3632285909749923457, guid: 02950177e1382fe409d6288f1aae342a,
-      type: 3}
     rayLength: 100
-    damage: 10
-    damageHead: 10
   healthHandler:
     maxHealth: 100
     maxArmor: 100
   headCollider: {fileID: 8321054633001100277}
   textName: {fileID: 5368989808583970253}
+  damage: 10
+  damageHead: 10
+  rayLength: 100
+  Health: 100
+  HealthMax: 100
+  Kills: 0
+  Deaths: 0
+  isDead: 0
 --- !u!1001 &4616593822853642627
 PrefabInstance:
   m_ObjectHideFlags: 0

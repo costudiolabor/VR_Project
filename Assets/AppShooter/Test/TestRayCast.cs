@@ -14,23 +14,23 @@ public class TestRayCast : NetworkBehaviour {
         if(!isOwned) return;
         if (Input.GetKeyDown ("f")) {
             Debug.Log("TestRayCast");
-            RayCast(transform.position, transform.forward);
+            CmdTryShoot(transform.position, transform.forward);
         }
     }
 
 
-
-    private void RayCast( Vector3 origin, Vector3 direction)
+    [Command]
+    private void CmdTryShoot( Vector3 origin, Vector3 direction)
     {
         
-        int layerMask = 1 << 7;
-        layerMask = ~layerMask;
+        //int layerMask = 1 << 7;
+        //layerMask = ~layerMask;
         
         direction *= 10;
         Ray ray = new Ray(origin, direction);
         Debug.DrawRay(origin, direction , Color.red, 0.5f);
         RaycastHit hit;
-        if (Physics.Raycast(ray, out hit, layerMask))
+        if (Physics.Raycast(ray, out hit))
         {
 
             Debug.Log("SERVER: Player shot: " + hit.collider.name);

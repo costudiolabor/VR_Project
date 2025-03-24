@@ -10,7 +10,7 @@ public class HealthHandler: Initializable {
     private int _currentArmor;
     
     public event Action<int> HealthChangedEvent, ArmorChangedEvent;
-    public event Action DeathEvent;
+    //public event Action DeathEvent;
 
     public void Initialize() {
         _currentHealth = maxHealth;
@@ -21,6 +21,8 @@ public class HealthHandler: Initializable {
     
     public int GetMaxHealth() => maxHealth;
     public int GetMaxArmor() => maxArmor;
+    
+    //public void SetHealth(int damage) => HealthChangedEvent?.Invoke(damage);
 
     public void TakeDamage(int damage) {
         _currentArmor -= damage;
@@ -29,7 +31,7 @@ public class HealthHandler: Initializable {
         _currentHealth = Mathf.Clamp(_currentHealth, 0, maxHealth);
         HealthChangedEvent?.Invoke(_currentHealth);
         ArmorChangedEvent?.Invoke(_currentArmor);
-        if (_currentHealth == 0) DeathEvent?.Invoke();
+        //if (_currentHealth == 0) DeathEvent?.Invoke();
     }
     
 }

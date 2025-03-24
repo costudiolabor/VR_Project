@@ -17,7 +17,7 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/AppShooter/Scenes/SceneBoot.unity
     guid: e9ec90e890b6f014583329c892e22a10
-  - enabled: 0
+  - enabled: 1
     path: Assets/AppShooter/Scenes/Develop_Old.unity
     guid: 7ec501134b852b04e98a71d67a89ec3d
   - enabled: 0
@@ -26,7 +26,7 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/CS_Multiplayer/Scenes/Game.unity
     guid: 98076aed2d050d9479bcc8cd948fd9e9
-  - enabled: 1
+  - enabled: 0
     path: Assets/AppShooter/Test/Test Scene.unity
     guid: 74031f96ac760ff40adbe15e9698c887
   m_configObjects:

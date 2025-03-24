@@ -34,9 +34,9 @@ public class Entry : MonoBehaviour, Initializable, ISubscriptionable {
     public void Subscription() {
        _playerController.HealthChangedEvent += healthArmorService.SetHealth;
        _playerController.ArmorChangedEvent += healthArmorService.SetArmor;
-       
        _playerController.DeathEvent += healthArmorService.ShowDeath;
     }
+    
     public void UnSubscription() {  }
     private void OnDestroy() { UnSubscription(); }
     
