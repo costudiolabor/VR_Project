@@ -1,12 +1,12 @@
 using System;
 using UnityEngine;
-using Object = UnityEngine.Object;
 
 [Serializable]
 public class HitHandler {
-    [SerializeField] private Bullet bulletPrefab;
+    //[SerializeField] private Bullet bulletPrefab;
     [SerializeField] private float rayLength = 100.0f;
-    [SerializeField] private int damage = 10;
+    [SerializeField] private byte damage = 10;
+    [SerializeField] private byte damageHead = 10;
     
     private Camera _camera;
     private Bullet[] _bullets;
@@ -15,44 +15,62 @@ public class HitHandler {
     private Vector2 _center;
     private Transform _hitTransform;
     
-    public event Action<Vector3> HitEvent;
+    //public event Action<Vector3> HitEvent;
+    //public event Action<uint, byte> HitEvent;
     
     public void Initialize(Camera camera) {
         _camera = camera;
-        _center.x = Screen.width / 2.0f;
-        _center.y = Screen.height / 2.0f;
+        //_center.x = Screen.width / 2.0f;
+       // _center.y = Screen.height / 2.0f;
+        //CreateImpacts();
+       
     }
 
-    public void CreateImpacts() {
-        _bullets = new Bullet[MaxBullets];
-        for (int i = 0; i < MaxBullets; i++) {
-            _bullets[i] = Object.Instantiate(bulletPrefab);
-            _bullets[i].damage = damage;
-            _bullets[i].Hide();
-        }
-        
-    }
+    // public void CreateImpacts() {
+    //     _bullets = new Bullet[MaxBullets];
+    //     for (int i = 0; i < MaxBullets; i++) {
+    //         _bullets[i] = Object.Instantiate(bulletPrefab);
+    //         _bullets[i].damage = damage;
+    //         _bullets[i].Hide();
+    //     }
+    //     
+    // }
 
-    public void OnShoot() {
-       // Debug.Log("OnShoot");
-        var raycastHit = RayFromCamera(_center, out var isHitRayCast);
-        if (isHitRayCast) {
-            _hitTransform = raycastHit.transform;
-            if (_hitTransform.TryGetComponent(out IDamageable damageable)) {
-                HitEvent?.Invoke(raycastHit.point);
-            }
-        }
-    }
-    
-    public RaycastHit RayFromCamera(Vector3 position, out bool isHitRayCast) {
-        var ray = _camera.ScreenPointToRay(position);
-        isHitRayCast = Physics.Raycast(ray, out var hit, rayLength);
-        return hit;
-    }
-    
-    public void RpcSetPositionImpact(Vector3 position) {
-        _bullets[_currentBullet].transform.position = position;
-        _bullets[_currentBullet].Show();
-        if (++_currentBullet >= MaxBullets) _currentBullet = 0;
-    }
+//      public void OnShoot() {
+//          Debug.Log("OnShoot");
+//        
+//          _center.x = _camera.pixelWidth / 2.0f;
+//          _center.y = _camera.pixelHeight / 2.0f;
+//          
+//          var raycastHit = RayFromCamera(_center, out var isHitRayCast);
+//          if (isHitRayCast) {
+//              _hitTransform = raycastHit.transform;
+//              
+//              if (_hitTransform.TryGetComponent(out PlayerController playerController) ) {
+//                  // uint netInId = damageable.GetIdentity();
+//                  // Debug.Log("PlayerController " + netInId);
+//                  // HitEvent?.Invoke(netInId, damage);
+//                  playerController.TakeDamage(damage);
+//              }
+//              
+//              if (_hitTransform.TryGetComponent(out HeadCollider headCollider) ) {
+//                  // uint netInId = headCollider.GetIdentity();
+//                  // Debug.Log("HeadCollider " + netInId);
+//                  // HitEvent?.Invoke(netInId, damageHead);
+//                  headCollider.TakeDamage(damage);
+//              }
+//          }
+//      }
+//     
+//      public RaycastHit RayFromCamera(Vector3 position, out bool isHitRayCast) {
+//          var ray = _camera.ScreenPointToRay(position);
+//          isHitRayCast = Physics.Raycast(ray, out var hit, rayLength);
+//          Debug.DrawRay(ray.origin, ray.direction * rayLength, Color.red, 0.5f);
+//          return hit;
+//      }
+//     public void RpcSetPositionImpact(Vector3 position) {
+//         _bullets[_currentBullet].transform.position = position;
+//         _bullets[_currentBullet].Show();
+//         if (++_currentBullet >= MaxBullets) _currentBullet = 0;
+//     }
 }

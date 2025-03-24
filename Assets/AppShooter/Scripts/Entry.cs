@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Entry : MonoBehaviour, Initializable, ISubscriptionable {
     [SerializeField] private HealthArmorService healthArmorService;
-    [SerializeField] private PlayerController _playerController;
+    private PlayerController _playerController;
     private void Start() { Initialize(); }
 
     public void Initialize() {
@@ -37,11 +37,7 @@ public class Entry : MonoBehaviour, Initializable, ISubscriptionable {
        
        _playerController.DeathEvent += healthArmorService.ShowDeath;
     }
-
-    public void UnSubscription() {
-        
-    }
-    
+    public void UnSubscription() {  }
     private void OnDestroy() { UnSubscription(); }
     
 }

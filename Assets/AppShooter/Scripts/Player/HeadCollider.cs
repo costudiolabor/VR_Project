@@ -2,12 +2,10 @@ using System;
 using UnityEngine;
 
 public class HeadCollider : MonoBehaviour {
-    
-    public event Action  HeadShootEvent;
-    private void OnTriggerEnter(Collider other) {
-        if (other.TryGetComponent(out Bullet bullet)) {
-            HeadShootEvent?.Invoke();
-            bullet.Hide();
-        }
-    }
+    //[SerializeField] private NetworkIdentity networkIdentity;
+    //private uint _netId;
+    //public uint GetIdentity() => networkIdentity.netId;
+    //public void SetIdentity(uint netId) => _netId = netId;
+    public event Action HeadShootEvent;
+    public void TakeDamage(byte damage) { HeadShootEvent?.Invoke(); }
 }
