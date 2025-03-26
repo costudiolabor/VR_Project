@@ -11,8 +11,9 @@ GameObject:
   - component: {fileID: 4381115244698452621}
   - component: {fileID: 4381115244698452620}
   - component: {fileID: 4381115244698452623}
-  - component: {fileID: 4381115244698452622}
   - component: {fileID: 4381115244698452658}
+  - component: {fileID: 1207816545}
+  - component: {fileID: 1207816549}
   m_Layer: 0
   m_Name: NetManager
   m_TagString: Untagged
@@ -47,7 +48,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6442dc8070ceb41f094e44de0bf87274, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  offsetX: 1500
+  offsetX: 0
   offsetY: 0
 --- !u!114 &4381115244698452623
 MonoBehaviour:
@@ -78,7 +79,7 @@ MonoBehaviour:
   debugLog: 0
   statisticsGUI: 0
   statisticsLog: 0
---- !u!114 &4381115244698452622
+--- !u!114 &4381115244698452658
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -87,7 +88,21 @@ MonoBehaviour:
   m_GameObject: {fileID: 4381115244698452617}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1b3f3f10e9851824499e96ad94f89d43, type: 3}
+  m_Script: {fileID: 11500000, guid: e24ef6e90d314ba45b15fa740de34a4f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fontSize: 25
+  fontColor: {r: 0.23910141, g: 1, b: 0, a: 1}
+--- !u!114 &1207816545
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4381115244698452617}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8aab4c8111b7c411b9b92cf3dbc5bd4e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   dontDestroyOnLoad: 1
@@ -97,18 +112,18 @@ MonoBehaviour:
   sendRate: 60
   autoStartServerBuild: 0
   autoConnectClientBuild: 0
-  offlineScene: 
-  onlineScene: 
+  offlineScene: Assets/AppShooter/Scenes/SceneBoot.unity
+  onlineScene: Assets/AppShooter/Scenes/Develop_New.unity
   transport: {fileID: 4381115244698452623}
-  networkAddress: localhost
+  networkAddress: 192.168.1.77
   maxConnections: 100
   disconnectInactiveConnections: 0
   disconnectInactiveTimeout: 60
   authenticator: {fileID: 0}
   playerPrefab: {fileID: 8225628602776891487, guid: 60311c9c038d0a34e9b23659c7941af7,
     type: 3}
-  autoCreatePlayer: 0
-  playerSpawnMethod: 0
+  autoCreatePlayer: 1
+  playerSpawnMethod: 1
   spawnPrefabs: []
   exceptionsDisconnect: 1
   snapshotSettings:
@@ -125,7 +140,7 @@ MonoBehaviour:
   evaluationMethod: 0
   evaluationInterval: 3
   timeInterpolationGui: 0
---- !u!114 &4381115244698452658
+--- !u!114 &1207816549
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -134,8 +149,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 4381115244698452617}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e24ef6e90d314ba45b15fa740de34a4f, type: 3}
+  m_Script: {fileID: 11500000, guid: bc654f29862fc2643b948f772ebb9e68, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fontSize: 25
-  fontColor: {r: 0.23910141, g: 1, b: 0, a: 1}
+  color: {r: 1, g: 1, b: 1, a: 1}
+  padding: 2
+  width: 150
+  height: 25

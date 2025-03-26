@@ -1,6 +1,12 @@
+using System;
 using UnityEngine;
 
-public class Damagable : MonoBehaviour, IDamageable_old {
-    private uint _networkId = 1000;
-    public uint GetIdentity() => _networkId;
+public class Damagable : MonoBehaviour, IDamageable_Custom {
+    [SerializeField] private int headDamage = 0;
+    public event Action<int> DamageEvent;
+    public void Damage(int damage) {
+        damage += headDamage;
+        DamageEvent?.Invoke(damage);
+        Debug.Log("Damagable: " + damage);
+    }
 }
