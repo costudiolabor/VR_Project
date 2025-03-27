@@ -8,9 +8,10 @@ using UnityStandardAssets.Characters.FirstPerson;
 public class PlayerController : NetworkBehaviour, ISubscriptionable {
     [SerializeField] private CharacterController characterController;
     [SerializeField] private FirstPersonController firstPersonController;
-    //[SerializeField] private Rigidbody rigidBody;
     [SerializeField] private Camera cameraPlayer;
-    [SerializeField] private MeshRenderer[] visuals;
+    //[SerializeField] private MeshRenderer[] visuals;
+    [SerializeField] private GameObject visualLocal;
+    [SerializeField] private GameObject visual;
     [SerializeField] private AudioListener audioListener;
     [SerializeField] private WeaponHandler weaponHandler;
     [SerializeField] private HitHandler hitHandler;
@@ -45,9 +46,16 @@ public class PlayerController : NetworkBehaviour, ISubscriptionable {
     }
 
     private void SetLocalPlayer() {
-        if (!isLocalPlayer) return; 
-        NetworkManager networkManager = NetworkManager.singleton;
-        networkManager.SetPlayer(gameObject);
+        if (isLocalPlayer) {
+            NetworkManager networkManager = NetworkManager.singleton;
+            networkManager.SetPlayer(gameObject);
+            visualLocal.SetActive(true);
+            visual.SetActive(false);
+        }
+        else {
+            visualLocal.SetActive(false);
+            visual.SetActive(true);
+        }
     }
 
     private void EnableComponents(bool state) {
@@ -55,10 +63,10 @@ public class PlayerController : NetworkBehaviour, ISubscriptionable {
         firstPersonController.enabled = state;
         cameraPlayer.enabled = state;
         audioListener.enabled = state;
-        EnableVisual(!state);
+        //EnableVisual(!state);
     }
  
-    private void EnableVisual(bool state) { foreach (var visual in visuals) visual.enabled = state; }
+    //private void EnableVisual(bool state) { foreach (var visual in visuals) visual.enabled = state; }
     private void Update() { UpdateEvent?.Invoke(); }
     private void Fire() {
         TryShoot();
@@ -84,7 +92,6 @@ public class PlayerController : NetworkBehaviour, ISubscriptionable {
     
     [TargetRpc]
     public void TargetGotDamage(int damage){
-        //CanvasManager.instance.UpdateHP(Health, HealthMax);
         healthHandler.TakeDamage(damage);
         Debug.Log("We got hit!");
     }
@@ -100,8 +107,6 @@ public class PlayerController : NetworkBehaviour, ISubscriptionable {
     
     [TargetRpc]
     void TargetDie() {
-        //Called on the died player.
-        //CanvasManager.instance.ChangePlayerState(!isDead);
         PlayerDie();
         Debug.Log("You died.");
     }
@@ -139,7 +144,6 @@ public class PlayerController : NetworkBehaviour, ISubscriptionable {
         weaponHandler.ShootEvent += Fire;
         healthHandler.HealthChangedEvent += OnHealthChanged;
        // healthHandler.ArmorChangedEvent += OnArmorChanged;
-        //healthHandler.DeathEvent += Die;
         SubscriptionDamages();
     }
 
@@ -151,7 +155,6 @@ public class PlayerController : NetworkBehaviour, ISubscriptionable {
         weaponHandler.ShootEvent -= Fire;
         healthHandler.HealthChangedEvent -= OnHealthChanged;
         //healthHandler.ArmorChangedEvent -= OnArmorChanged;
-       // healthHandler.DeathEvent -= Die;
         UnSubscriptionDamages();
         UpdateEvent = null;
         HealthChangedEvent = null;

@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &4381115244698452617
+--- !u!1 &2035292916435837521
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,26 +8,26 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 4381115244698452621}
-  - component: {fileID: 4381115244698452658}
-  - component: {fileID: 1207816549}
-  - component: {fileID: 8804767130257017500}
-  - component: {fileID: 4381115244698452623}
-  - component: {fileID: 2932263502731857191}
+  - component: {fileID: 2035292916435837525}
+  - component: {fileID: 2035292916435837546}
+  - component: {fileID: 2373969874376978877}
+  - component: {fileID: 6540027153659685444}
+  - component: {fileID: 2035292916435837527}
+  - component: {fileID: 595450534369357311}
   m_Layer: 0
-  m_Name: NetManager
+  m_Name: NetMan
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4381115244698452621
+--- !u!4 &2035292916435837525
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4381115244698452617}
+  m_GameObject: {fileID: 2035292916435837521}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
@@ -36,13 +36,13 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &4381115244698452658
+--- !u!114 &2035292916435837546
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4381115244698452617}
+  m_GameObject: {fileID: 2035292916435837521}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e24ef6e90d314ba45b15fa740de34a4f, type: 3}
@@ -50,13 +50,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fontSize: 25
   fontColor: {r: 0.23910141, g: 1, b: 0, a: 1}
---- !u!114 &1207816549
+--- !u!114 &2373969874376978877
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4381115244698452617}
+  m_GameObject: {fileID: 2035292916435837521}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bc654f29862fc2643b948f772ebb9e68, type: 3}
@@ -66,13 +66,13 @@ MonoBehaviour:
   padding: 2
   width: 150
   height: 25
---- !u!114 &8804767130257017500
+--- !u!114 &6540027153659685444
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4381115244698452617}
+  m_GameObject: {fileID: 2035292916435837521}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6442dc8070ceb41f094e44de0bf87274, type: 3}
@@ -80,13 +80,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   offsetX: 0
   offsetY: 0
---- !u!114 &4381115244698452623
+--- !u!114 &2035292916435837527
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4381115244698452617}
+  m_GameObject: {fileID: 2035292916435837521}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6b0fecffa3f624585964b0d0eb21b18e, type: 3}
@@ -109,13 +109,13 @@ MonoBehaviour:
   debugLog: 0
   statisticsGUI: 0
   statisticsLog: 0
---- !u!114 &2932263502731857191
+--- !u!114 &595450534369357311
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4381115244698452617}
+  m_GameObject: {fileID: 2035292916435837521}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1b3f3f10e9851824499e96ad94f89d43, type: 3}
@@ -130,15 +130,16 @@ MonoBehaviour:
   autoConnectClientBuild: 0
   offlineScene: 
   onlineScene: 
-  transport: {fileID: 4381115244698452623}
+  transport: {fileID: 2035292916435837527}
   networkAddress: localhost
   maxConnections: 100
   disconnectInactiveConnections: 0
   disconnectInactiveTimeout: 60
   authenticator: {fileID: 0}
-  playerPrefab: {fileID: 0}
-  autoCreatePlayer: 1
-  playerSpawnMethod: 0
+  playerPrefab: {fileID: 8225628602776891487, guid: 60311c9c038d0a34e9b23659c7941af7,
+    type: 3}
+  autoCreatePlayer: 0
+  playerSpawnMethod: 1
   spawnPrefabs: []
   exceptionsDisconnect: 1
   snapshotSettings:
