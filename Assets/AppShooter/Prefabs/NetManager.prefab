@@ -128,17 +128,18 @@ MonoBehaviour:
   sendRate: 60
   autoStartServerBuild: 0
   autoConnectClientBuild: 0
-  offlineScene: 
-  onlineScene: 
+  offlineScene: Assets/AppShooter/Scenes/SceneBoot.unity
+  onlineScene: Assets/AppShooter/Scenes/Develop_Old.unity
   transport: {fileID: 4381115244698452623}
   networkAddress: localhost
   maxConnections: 100
   disconnectInactiveConnections: 0
   disconnectInactiveTimeout: 60
   authenticator: {fileID: 0}
-  playerPrefab: {fileID: 0}
-  autoCreatePlayer: 1
-  playerSpawnMethod: 0
+  playerPrefab: {fileID: 8225628602776891487, guid: aaecd8af952b13b43961c49707c9dcad,
+    type: 3}
+  autoCreatePlayer: 0
+  playerSpawnMethod: 1
   spawnPrefabs: []
   exceptionsDisconnect: 1
   snapshotSettings:
