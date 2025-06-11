@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Entry : MonoBehaviour, Initializable, ISubscriptionable {
     [SerializeField] private HealthArmorService healthArmorService;
-    private PlayerController _playerController;
+    private NetWorkEntity _netWorkEntity;
     private void Start() { Initialize(); }
 
     public void Initialize() {
@@ -22,19 +22,23 @@ public class Entry : MonoBehaviour, Initializable, ISubscriptionable {
              yield return null;
              player = networkManager.GetPlayer();
         }
-        _playerController = player.GetComponent<PlayerController>();
-        
-        healthArmorService.SetMaxHealth(_playerController.GetMaxHealth());
-        healthArmorService.SetMaxArmor(_playerController.GetMaxArmor());
+        _netWorkEntity = player.GetComponent<NetWorkEntity>();
+      
+        healthArmorService.SetMaxHealth(_netWorkEntity.GetMaxHealth());
+        healthArmorService.SetMaxArmor(_netWorkEntity.GetMaxArmor());
         healthArmorService.Initialize();
         Subscription();
-        _playerController.HealthHandlerInitialize();
+        _netWorkEntity.HealthHandlerInitialize();
     }
 
+    
+    
+    
+    
     public void Subscription() {
-       _playerController.HealthChangedEvent += healthArmorService.SetHealth;
-       _playerController.ArmorChangedEvent += healthArmorService.SetArmor;
-       _playerController.DeathEvent += healthArmorService.ShowDeath;
+       _netWorkEntity.HealthChangedEvent += healthArmorService.SetHealth;
+       _netWorkEntity.ArmorChangedEvent += healthArmorService.SetArmor;
+       _netWorkEntity.DeathEvent += healthArmorService.ShowDeath;
     }
     
     public void UnSubscription() {  }

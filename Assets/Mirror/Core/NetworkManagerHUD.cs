@@ -1,3 +1,5 @@
+using System;
+using System.Collections;
 using UnityEngine;
 
 namespace Mirror
@@ -9,6 +11,8 @@ namespace Mirror
     [HelpURL("https://mirror-networking.gitbook.io/docs/components/network-manager-hud")]
     public class NetworkManagerHUD : MonoBehaviour
     {
+        
+        [SerializeField] private bool isServer;
         NetworkManager manager;
 
         public int offsetX;
@@ -17,6 +21,11 @@ namespace Mirror
         void Awake()
         {
             manager = GetComponent<NetworkManager>();
+        }
+
+        private IEnumerator Start() {
+            yield return new WaitForSeconds(2.0f);
+            if(isServer == true) manager.StartServer();
         }
 
         void OnGUI()

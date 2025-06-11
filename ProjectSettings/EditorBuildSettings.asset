@@ -6,29 +6,23 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 0
-    path: Assets/Scenes/Map_v2_Main.unity
-    guid: 3c8d04d9bd88b214599b76faec689cb4
-  - enabled: 0
-    path: Assets/Mirror/Examples/Tanks/Scenes/MirrorTanks.unity
-    guid: 83f9d2fb76f5742448c6e51f258327a2
-  - enabled: 0
-    path: Assets/LearnMirror/SceneMirror.unity
-    guid: b0ae3d6c7f34a7b4ba0bbf800383207c
-  - enabled: 0
     path: Assets/AppShooter/Scenes/SceneBoot.unity
     guid: e9ec90e890b6f014583329c892e22a10
-  - enabled: 1
+  - enabled: 0
     path: Assets/AppShooter/Scenes/Develop_Old.unity
     guid: 7ec501134b852b04e98a71d67a89ec3d
-  - enabled: 0
-    path: Assets/AppShooter/Scenes/Develop_New.unity
-    guid: 27074990790ae5941b63bba78a0d07ae
-  - enabled: 0
-    path: Assets/CS_Multiplayer/Scenes/Game.unity
-    guid: 98076aed2d050d9479bcc8cd948fd9e9
-  - enabled: 0
-    path: Assets/AppShooter/Test/Test Scene.unity
-    guid: 74031f96ac760ff40adbe15e9698c887
+  - enabled: 1
+    path: Assets/QuickStartQuide/NewQuickStartQuide/Scenes/Menu.unity
+    guid: 54b4e333f80a45c4191d6ef34c3f0ec3
+  - enabled: 1
+    path: Assets/QuickStartQuide/NewQuickStartQuide/Scenes/GamesList.unity
+    guid: c868ea8e5098f5f4f9908261e30b1366
+  - enabled: 1
+    path: Assets/QuickStartQuide/NewQuickStartQuide/Scenes/MyScene.unity
+    guid: 57927db972086ee47ad33d9563d7b32b
+  - enabled: 1
+    path: Assets/QuickStartQuide/NewQuickStartQuide/Scenes/MyOtherScene.unity
+    guid: 5f7da0e26eb0f554bab4810f7933b16b
   m_configObjects:
     Unity.XR.Oculus.Settings: {fileID: 11400000, guid: 04ae72275aa4f2249a3f242efc8750e8,
       type: 2}

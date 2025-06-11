@@ -4,6 +4,7 @@ using UnityEngine;
 [Serializable]
 public class HitHandler {
     [SerializeField] private float rayLength = 100.0f;
+    [SerializeField] private byte damage = 10;
     
     private Camera _camera;
     private Bullet[] _bullets;
@@ -25,8 +26,8 @@ public class HitHandler {
     //     
     // }
     
-    public void TryShoot(byte damage) {
-        Debug.Log("OnShoot");
+    public void TryShoot() {
+        //Debug.Log("OnShoot");
         _center.x = _camera.pixelWidth / 2.0f;
         _center.y = _camera.pixelHeight / 2.0f;
         

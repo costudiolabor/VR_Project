@@ -5,8 +5,7 @@ using UnityEngine;
 namespace UnityStandardAssets.Utility
 {
     [Serializable]
-    public class LerpControlledBob
-    {
+    public class LerpControlledBob {
         public float BobDuration;
         public float BobAmount;
 
@@ -14,18 +13,12 @@ namespace UnityStandardAssets.Utility
 
 
         // provides the offset that can be used
-        public float Offset()
-        {
-            return m_Offset;
-        }
+        public float Offset() {  return m_Offset; }
 
-
-        public IEnumerator DoBobCycle()
-        {
+        public IEnumerator DoBobCycle() {
             // make the camera move down slightly
             float t = 0f;
-            while (t < BobDuration)
-            {
+            while (t < BobDuration) {
                 m_Offset = Mathf.Lerp(0f, BobAmount, t/BobDuration);
                 t += Time.deltaTime;
                 yield return new WaitForFixedUpdate();
@@ -33,8 +26,7 @@ namespace UnityStandardAssets.Utility
 
             // make it move back to neutral
             t = 0f;
-            while (t < BobDuration)
-            {
+            while (t < BobDuration) {
                 m_Offset = Mathf.Lerp(BobAmount, 0f, t/BobDuration);
                 t += Time.deltaTime;
                 yield return new WaitForFixedUpdate();

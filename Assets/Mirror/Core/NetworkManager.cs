@@ -178,7 +178,13 @@ namespace Mirror
         
         protected GameObject _player;
         public GameObject GetPlayer() => _player;
-        public void SetPlayer(GameObject player) => _player = player; 
+        public void SetPlayer(GameObject player) => _player = player;
+
+
+        private string _namePlayer;
+        public string GetNamePlayer() => _namePlayer;
+        public void SetPlayer(string namePlayer) => _namePlayer = namePlayer;
+        
         
 
         // virtual so that inheriting classes' OnValidate() can call base.OnValidate() too

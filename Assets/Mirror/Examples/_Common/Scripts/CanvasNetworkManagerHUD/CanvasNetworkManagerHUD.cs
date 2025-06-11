@@ -8,6 +8,8 @@ namespace Mirror.Examples.Common
 {
     public class CanvasNetworkManagerHUD : MonoBehaviour
     {
+        [SerializeField] private bool isServer;
+
         [SerializeField] private GameObject startButtonsGroup;
         [SerializeField] private GameObject statusLabelsGroup;
 
@@ -32,8 +34,16 @@ namespace Mirror.Examples.Common
             //RegisterClientEvents();
 
             CheckWebGLPlayer();
+
+            StartCoroutine(StartServer());
         }
 
+        
+        private IEnumerator StartServer() {
+            yield return new WaitForSeconds(2.0f);
+            if (isServer == true) OnClickStartServerButton();
+        }
+        
         private void RegisterListeners()
         {
             // Add button listeners. These buttons are already added in the inspector.
