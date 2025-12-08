@@ -41,7 +41,11 @@ namespace Mirror.Examples.Common
         
         private IEnumerator StartServer() {
             yield return new WaitForSeconds(2.0f);
-            if (isServer == true) OnClickStartServerButton();
+            if (isServer == true)
+            {
+                Debug.Log("Starting Remote Server");
+                OnClickStartServerButton();
+            }
         }
         
         private void RegisterListeners()
